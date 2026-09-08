@@ -13,8 +13,8 @@
 //  políticas de segurança e daria a qualquer visitante acesso total.
 // =====================================================================
 
-export const SUPABASE_URL = "https://SEUPROJETO.supabase.co";
-export const SUPABASE_ANON_KEY = "COLE_AQUI_SUA_CHAVE_ANON";
+export const SUPABASE_URL = "https://xlzilrzmcjbbvnkrkggm.supabase.co";
+export const SUPABASE_ANON_KEY = "sb_publishable_2c4Qpb9G-dhoblrMX31DtA_G0DkgToR";
 
 // Versão que abre por padrão. Precisa existir na tabela `versions`.
 export const VERSAO_PADRAO = "AA";
