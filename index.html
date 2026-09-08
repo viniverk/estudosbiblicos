@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estudo Bíblico</title>
+<meta name="description" content="Leia a Bíblia em várias versões, faça anotações, veja a etimologia das palavras originais e os lugares no mapa.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,600;1,7..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Serif+Hebrew:wght@400;600&family=Noto+Serif:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="pular" href="#leitura">Ir para o texto</a>
+
+<header class="topo">
+  <button class="icone menu-mobile" id="btn-menu" aria-label="Abrir lista de livros">☰</button>
+
+  <a class="marca" href="#/">Estudo Bíblico</a>
+
+  <div class="topo-acoes">
+    <form class="busca" id="form-busca" role="search">
+      <input type="search" id="campo-busca" placeholder="Buscar no texto" aria-label="Buscar no texto">
+    </form>
+
+    <select id="seletor-versao" aria-label="Versão da Bíblia"></select>
+
+    <button class="icone" id="btn-tema" aria-label="Alternar tema claro e escuro">◐</button>
+
+    <button class="botao-conta" id="btn-conta">Entrar</button>
+  </div>
+</header>
+
+<div class="corpo">
+
+  <nav class="rail" id="rail" aria-label="Livros da Bíblia">
+    <div class="rail-conteudo" id="rail-conteudo"></div>
+  </nav>
+
+  <main class="palco" id="palco">
+    <div id="leitura" class="leitura"></div>
+  </main>
+
+</div>
+
+<!-- painel lateral: etimologia, anotação, mapa, resultados -->
+<aside class="painel" id="painel" hidden aria-live="polite">
+  <div class="painel-topo">
+    <h2 id="painel-titulo"></h2>
+    <button class="icone" id="btn-fechar-painel" aria-label="Fechar painel">✕</button>
+  </div>
+  <div class="painel-corpo" id="painel-corpo"></div>
+</aside>
+
+<div class="veu" id="veu" hidden></div>
+
+<!-- menu que aparece ao tocar num versículo -->
+<div class="menu-versiculo" id="menu-versiculo" hidden role="menu">
+  <div class="cores" id="cores"></div>
+  <div class="menu-linha">
+    <button data-acao="anotar">Anotar</button>
+    <button data-acao="palavras">Palavras originais</button>
+  </div>
+</div>
+
+<!-- entrar / criar conta -->
+<dialog class="dialogo" id="dialogo-conta">
+  <form method="dialog" id="form-conta">
+    <h2 id="titulo-conta">Entrar</h2>
+    <p class="dialogo-texto">Sua conta guarda anotações e marcações. Ler não exige entrar.</p>
+    <label>E-mail<input type="email" id="conta-email" required autocomplete="email"></label>
+    <label>Senha<input type="password" id="conta-senha" required minlength="6" autocomplete="current-password"></label>
+    <p class="aviso" id="conta-aviso" hidden></p>
+    <div class="dialogo-acoes">
+      <button type="button" class="ligacao" id="btn-alternar-conta">Criar uma conta</button>
+      <span class="espaco"></span>
+      <button type="button" class="secundario" id="btn-cancelar-conta">Cancelar</button>
+      <button type="button" class="primario" id="btn-enviar-conta">Entrar</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script type="module" src="assets/app.js"></script>
+</body>
+</html>
